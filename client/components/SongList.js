@@ -6,13 +6,13 @@ import query from '../queries/fetchSongs';
 
 class SongList extends Component {
   renderSongs() {
-    return this.props.data.songs.map(song => {
+    return this.props.data.songs.map(({ id, title }) => {
       return (
         <li
-          key={song.id}
+          key={id}
           className="collection-item"
         >
-          {song.title}
+          {title}
         </li>
       );
     });

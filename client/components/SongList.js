@@ -5,6 +5,10 @@ import { Link } from 'react-router';
 import query from '../queries/fetchSongs';
 
 class SongList extends Component {
+  onSongDelete(id) {
+    this.props.mutate({ variables: { id } });
+  }
+
   renderSongs() {
     return this.props.data.songs.map(({ id, title }) => {
       return (
@@ -13,6 +17,12 @@ class SongList extends Component {
           className="collection-item"
         >
           {title}
+          <i
+            className="material-icons"
+            onClick={() => this.onSongDelete(id)}
+          >
+            delete
+          </i>
         </li>
       );
     });

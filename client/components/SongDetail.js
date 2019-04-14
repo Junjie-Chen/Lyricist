@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { graphql } from 'react-apollo';
+import query from '../queries/fetchSong';
 
 class SongDetail extends Component {
   render() {
@@ -10,4 +12,4 @@ class SongDetail extends Component {
   }
 }
 
-export default SongDetail;
+export default graphql(query, { options: props => ({ variables: { id: props.params.id } }) })(SongDetail);

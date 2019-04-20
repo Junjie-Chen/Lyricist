@@ -15,13 +15,15 @@ class LyricList extends Component {
           className="collection-item"
         >
           {content}
-          <i
-            className="material-icons"
-            onClick={() => this.onLyricLike(id)}
-          >
-            thumb_up
-          </i>
-          {likes}
+          <div className="vote-box">
+            <i
+              className="material-icons"
+              onClick={() => this.onLyricLike(id)}
+            >
+              thumb_up
+            </i>
+            {likes}
+          </div>
         </li>
       );
     });

@@ -8,7 +8,7 @@ class LyricList extends Component {
   }
 
   renderLyrics() {
-    return this.props.lyrics.map(({ id, content }) => {
+    return this.props.lyrics.map(({ id, content, likes }) => {
       return (
         <li
           key={id}
@@ -21,6 +21,7 @@ class LyricList extends Component {
           >
             thumb_up
           </i>
+          {likes}
         </li>
       );
     });

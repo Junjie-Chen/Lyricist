@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
 
 class LyricList extends Component {
   renderLyrics() {
@@ -29,4 +30,4 @@ const mutation = gql`
   }
 `;
 
-export default LyricList;
+export default graphql(mutation)(LyricList);

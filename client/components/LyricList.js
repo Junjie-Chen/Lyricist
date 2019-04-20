@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class LyricList extends Component {
+  onLyricLike(id) {
+
+  }
+
   renderLyrics() {
     return this.props.lyrics.map(({ id, content }) => {
       return (
@@ -9,6 +13,12 @@ class LyricList extends Component {
           className="collection-item"
         >
           {content}
+          <i
+            className="material-icons"
+            onClick={() => this.onLyricLike(id)}
+          >
+            thumb_up
+          </i>
         </li>
       );
     });

@@ -8,7 +8,7 @@
     "url": "https://github.com/Junjie-Chen/Song-Lyrics.git"
   },
   "scripts": {
-    "dev": "nodemon index.js --ignore client"
+    "dev": "NODE_ENV='development' nodemon index.js --ignore client"
   },
   "author": "",
   "license": "ISC",

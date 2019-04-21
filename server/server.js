@@ -18,17 +18,20 @@ const webpackConfig = require('../webpack.config.js');
 
 app.use(webpackMiddleware(webpack(webpackConfig)));
 
-// Replace '' with your MongoDB Atlas connection string
-const MONGO_URI = '';
+if (process.env.NODE_ENV !== 'production') {
+  require('../keys');
+}
 
-if (!MONGO_URI) {
-  throw new Error('You must provide a MongoLab URI');
+const MONGODB_ATLAS_CONNECTION_STRING = process.env.MONGODB_ATLAS_CONNECTION_STRING;
+
+if (!MONGODB_ATLAS_CONNECTION_STRING) {
+  throw new Error('You must provide a MongoDB Atlas connection string.');
 }
 
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(MONGO_URI, { useMongoClient: true });
+mongoose.connect(MONGODB_ATLAS_CONNECTION_STRING, { useMongoClient: true });
 mongoose.connection
   .once('open', () => console.log('Connected to MongoLab instance.'))
   .on('error', error => console.log('Error connecting to MongoLab:', error));

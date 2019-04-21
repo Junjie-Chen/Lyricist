@@ -2,13 +2,17 @@
   "name": "song-lyrics",
   "version": "1.0.0",
   "description": "A collaborative song writing application created by React, GraphQL, Express and MongoDB",
+  "engines": {
+    "node": ">= 7.0.0"
+  },
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Junjie-Chen/Song-Lyrics.git"
   },
   "scripts": {
-    "dev": "nodemon index.js --ignore client"
+    "start": "node index.js",
+    "dev": "NODE_ENV='development' nodemon index.js --ignore client"
   },
   "author": "",
   "license": "ISC",
